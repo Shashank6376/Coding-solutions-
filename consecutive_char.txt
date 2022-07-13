@@ -1,0 +1,30 @@
+Q.) This is a cognziant practise question where in we are asked to fill in the code and make it work.
+
+    In this Q we are given a function consecutiveChar(char *str) that accepets a char string str, which is supposed to return a new string with 
+    the first occuring longest substring consisiting of the same alphabet in str.
+    
+    Solution:)
+    
+    char *consecutiveChar(char *str)
+    {
+      int index=0,count=1,startIndex,maxCount=0;
+      while(str[index])
+      {
+        if(str[index]!=str[index+1])
+        { 
+          if(count>=maxCount)
+          {
+             startIndex=index-count+1;
+             maxCount=count;
+             }
+             count=1;
+          }
+          else
+          {
+            count++;
+          }
+          index++;
+       }
+       str[startIndex + maxCount]='\0';
+       return &str[startIndex];
+     }
